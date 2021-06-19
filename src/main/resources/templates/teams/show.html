@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <div th:object="${team}">
+    <h2 th:text="*{teamName}"></h2>
+    <ul>
+      <div th:each="player, iter : ${team.players}" th:remove="tag">
+        <li th:object="${player}">
+          <p th:text="*{name} + ': ' + *{position}"></p>
+        </li>
+      </div>
+    </ul>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Curling with Spring</title>
+</head>
+<body>
+<h1>Curling Teams</h1>
+<ul>
+  <div th:each="team, iter : ${teams}" th:remove="tag">
+    <li th:object="${team}">
+      <a th:href="@{/teams/{index}(index=${iter.index})}" th:text="*{teamName}"></a>
+    </li>
+  </div>
+
+</ul>
+</body>
+</html>
